@@ -1,0 +1,9 @@
+C:\Users\bjw\Documents\Visual Studio 2015\Projects\AdvantageLauncher\AdvantageLauncher\bin\Release\AdvantageLauncher.exe.config
+C:\Users\bjw\Documents\Visual Studio 2015\Projects\AdvantageLauncher\AdvantageLauncher\bin\Release\AdvantageLauncher.exe
+C:\Users\bjw\Documents\Visual Studio 2015\Projects\AdvantageLauncher\AdvantageLauncher\bin\Release\AdvantageLauncher.pdb
+C:\Users\bjw\Documents\Visual Studio 2015\Projects\AdvantageLauncher\AdvantageLauncher\obj\Release\AdvantageLauncher.AboutBox1.resources
+C:\Users\bjw\Documents\Visual Studio 2015\Projects\AdvantageLauncher\AdvantageLauncher\obj\Release\AdvantageLauncher.MainWindow.resources
+C:\Users\bjw\Documents\Visual Studio 2015\Projects\AdvantageLauncher\AdvantageLauncher\obj\Release\AdvantageLauncher.Properties.Resources.resources
+C:\Users\bjw\Documents\Visual Studio 2015\Projects\AdvantageLauncher\AdvantageLauncher\obj\Release\AdvantageLauncher.csproj.GenerateResource.Cache
+C:\Users\bjw\Documents\Visual Studio 2015\Projects\AdvantageLauncher\AdvantageLauncher\obj\Release\AdvantageLauncher.exe
+C:\Users\bjw\Documents\Visual Studio 2015\Projects\AdvantageLauncher\AdvantageLauncher\obj\Release\AdvantageLauncher.pdb
