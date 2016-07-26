@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Management;
 using System.Net.NetworkInformation;
+using System.Net;
 
 namespace AdvantageLauncher
 {
@@ -48,7 +49,7 @@ namespace AdvantageLauncher
                 checkBox1.Text = "Start Timekeeper";
                 Process.Start("cmd", "/C Taskkill /IM tsentry.exe /F").WaitForExit();
                 startServ();
-                
+
             }
             else
             {
@@ -58,7 +59,7 @@ namespace AdvantageLauncher
                 Process.Start(@"C:\Program Files (x86)\Deltek\Advantage\9.1\tsentry.exe");
 
             }
-           
+
         }
         private void showButton2_Click(object sender, EventArgs e)
         {
@@ -103,7 +104,7 @@ namespace AdvantageLauncher
 
         private void showButton4_Click(object sender, EventArgs e)
         {
-            System.Diagnostics.Process.Start("iexplore","https://sp.thermaltech.com/Office%20Resources/Advantage%20Errors.aspx");
+            System.Diagnostics.Process.Start("iexplore", "https://sp.thermaltech.com/Office%20Resources/Advantage%20Errors.aspx");
         }
 
         private void showButton5_Click(object sender, EventArgs e)
@@ -142,25 +143,21 @@ namespace AdvantageLauncher
         private bool checknetwork()
         {
             bool status = true;
-
-            status = PingHost("google.com");
-            if (status == false)
-            {
-                MessageBox.Show("No internet connection. Please connect to the internet");
-            }
-            else
-            {
+            double pingtime;
                 status = PingHost("advan.thermaltech.com");
                 if (status == false)
                 {
-                    MessageBox.Show("Cannot connect to Advantage server, please make sure you are on the VPN");
+                    pingtime = PingTimeAverage("192.168.0.26", 4);
+                if (pingtime == 0)
+                {
+                    MessageBox.Show("Cannot connect to Advantage server, please make sure you are on the VPN "+pingtime);
                 }
-            }
+                }        
             return status;
         }
 
 
-        public static bool PingHost(string nameOrAddress)
+        public bool PingHost(string nameOrAddress)
         {
             bool pingable = false;
             Ping pinger = new Ping();
@@ -174,6 +171,31 @@ namespace AdvantageLauncher
                 // Discard PingExceptions and return false;
             }
             return pingable;
+
+        }
+
+        public double PingTimeAverage(string host, int echoNum)
+        {
+            long totalTime = 0;
+            int timeout = 120;
+            Ping pingSender = new Ping();
+            try
+            {
+                for (int i = 0; i < echoNum; i++)
+                {
+                    PingReply reply = pingSender.Send(host, timeout);
+                    if (reply.Status == IPStatus.Success)
+                    {
+                        totalTime += reply.RoundtripTime;
+                    }
+                }
+            }
+            catch (PingException)
+            {
+                return 0;
+            }
+
+            return totalTime / echoNum;
         }
 
         public void checknetworkdelayed()
@@ -182,11 +204,12 @@ namespace AdvantageLauncher
             System.Threading.Timer timer = null;
             timer = new System.Threading.Timer((obj) =>
             {
+                updateCheck();
                 checknetwork();
                 timer.Dispose();
             },
               null, 500, System.Threading.Timeout.Infinite);
-            
+
 
         }
 
@@ -199,6 +222,57 @@ namespace AdvantageLauncher
             }
 
         }
+        private void updaterToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            bool needUpdate = updateCheck();
+            if (needUpdate == true)
+            {
+                MessageBox.Show("Your version is up to date.");
+            }
+
+        }
+
+        private bool updateCheck()
+        {
+            try
+            {
+                String versioninfo;
+                WebClient web = new WebClient();
+                System.IO.Stream stream = web.OpenRead("https://raw.githubusercontent.com/gigglesbw4/AdvantageLauncher/master/versioninfo.html");
+                using (System.IO.StreamReader reader = new System.IO.StreamReader(stream))
+                {
+                    versioninfo = reader.ReadToEnd();
+                    reader.Close();
+                }
+                string[] ssize = versioninfo.Split(null);
+                System.Version currentversion = new System.Version(ssize[1]);
+                System.Version myversion = new System.Version(Application.ProductVersion);
+                int test = currentversion.CompareTo(myversion);
+                string result = Convert.ToString(test);
+                if (test == 1)
+                {
+                    DialogResult dialogResult = MessageBox.Show("Your software needs to be updated.\nWould you like to restart the application and update now?", "", MessageBoxButtons.YesNo);
+                    if (dialogResult == DialogResult.Yes)
+                    {
+                        var path = AppDomain.CurrentDomain.BaseDirectory + "Updater.bat";
+                        Process.Start(path);
+                    }
+                    return false;
+
+                }
+                else
+                {
+                    return true;
+                }
+            }
+            catch (WebException)
+            {
+                MessageBox.Show("No internet connection. Please connect to the internet");
+                return false;
+            }
+        }
+
+     
     }
 
 
