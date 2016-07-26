@@ -1,11 +1,1 @@
 C:\Users\bjw\Documents\Visual Studio 2015\Projects\WindowsFormsApplication1\AdvantageLauncher\bin\Debug\AdvantageLauncher.exe.config
-C:\Users\bjw\Documents\Visual Studio 2015\Projects\AdvantageLauncher\AdvantageLauncher\bin\Debug\AdvantageLauncher.exe.config
-C:\Users\bjw\Documents\Visual Studio 2015\Projects\AdvantageLauncher\AdvantageLauncher\bin\Debug\AdvantageLauncher.exe
-C:\Users\bjw\Documents\Visual Studio 2015\Projects\AdvantageLauncher\AdvantageLauncher\bin\Debug\AdvantageLauncher.pdb
-C:\Users\bjw\Documents\Visual Studio 2015\Projects\AdvantageLauncher\AdvantageLauncher\obj\Debug\AdvantageLauncher.AboutBox1.resources
-C:\Users\bjw\Documents\Visual Studio 2015\Projects\AdvantageLauncher\AdvantageLauncher\obj\Debug\AdvantageLauncher.MainWindow.resources
-C:\Users\bjw\Documents\Visual Studio 2015\Projects\AdvantageLauncher\AdvantageLauncher\obj\Debug\AdvantageLauncher.Properties.Resources.resources
-C:\Users\bjw\Documents\Visual Studio 2015\Projects\AdvantageLauncher\AdvantageLauncher\obj\Debug\AdvantageLauncher.csproj.GenerateResource.Cache
-C:\Users\bjw\Documents\Visual Studio 2015\Projects\AdvantageLauncher\AdvantageLauncher\obj\Debug\AdvantageLauncher.exe
-C:\Users\bjw\Documents\Visual Studio 2015\Projects\AdvantageLauncher\AdvantageLauncher\obj\Debug\AdvantageLauncher.pdb
-C:\Users\bjw\Documents\Visual Studio 2015\Projects\AdvantageLauncher\AdvantageLauncher\obj\Debug\AdvantageLauncher.csprojResolveAssemblyReference.cache
