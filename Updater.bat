@@ -3,7 +3,21 @@ cd %~dp0
 IF EXIST Releases Powershell.exe  -ExecutionPolicy Bypass "Remove-Item .\Releases -Force -Recurse"
 mkdir Releases
 Powershell.exe  -ExecutionPolicy Bypass "(New-Object System.Net.WebClient).DownloadFile('https://github.com/gigglesbw4/AdvantageLauncher/archive/master.zip"', 'Releases\currentversion.zip'); "
-Powershell.exe  -ExecutionPolicy Bypass "Add-Type -AssemblyName System.IO.Compression.FileSystem; [System.IO.Compression.ZipFile]::ExtractToDirectory('Releases\currentversion.zip', 'Releases\currentversion'); "
+::Create unzip
+set SOURCEDIR="C:\Program Files (x86)\Deltek\Advantage\9.1\AdvantageLauncher\Releases\currentversion.zip"
+set OUTPUTDIR="C:\Program Files (x86)\Deltek\Advantage\9.1\AdvantageLauncher\Releases\currentversion"
+echo ZipFile=%SOURCEDIR% > _unzip.vbs
+echo ExtractTo=%OUTPUTDIR% >> _unzip.vbs
+echo Set fso = CreateObject("Scripting.FileSystemObject") >> _unzip.vbs
+echo fso.CreateFolder(ExtractTo) >> _unzip.vbs
+echo set objShell = CreateObject("Shell.Application")	>> _unzip.vbs
+echo set FilesInZip=objShell.NameSpace(ZipFile).items	>> _unzip.vbs
+echo objShell.NameSpace(ExtractTo).CopyHere(FilesInZip)	>> _unzip.vbs
+echo Set fso = Nothing	>> _unzip.vbs
+echo Set objShell = Nothing	>> _unzip.vbs
+CScript  _unzip.vbs
+del _unzip.vbs
+::Finished unzip
 if "%arg1%"=="yes" (
 GOTO YES
  )
