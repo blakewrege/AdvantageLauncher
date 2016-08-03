@@ -11,7 +11,7 @@ mkdir "C:\Program Files (x86)\Deltek\Advantage\9.1\AdvantageLauncher"
 cd "C:\Program Files (x86)\Deltek\Advantage\9.1\AdvantageLauncher"
 IF EXIST "C:\Program Files (x86)\Deltek\Advantage\9.1\AdvantageLauncher\Releases" Powershell.exe  -ExecutionPolicy Bypass "Remove-Item .\Releases -Force -Recurse"
 mkdir "Releases"
-Powershell.exe  -ExecutionPolicy Bypass "(New-Object System.Net.WebClient).DownloadFile('https://github.com/gigglesbw4/AdvantageLauncher/archive/master.zip"', 'Releases\currentversion.zip'); "
+"C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe"  -ExecutionPolicy Bypass "(New-Object System.Net.WebClient).DownloadFile('https://github.com/gigglesbw4/AdvantageLauncher/archive/master.zip"', 'Releases\currentversion.zip'); "
 ::Create unzip
 set SOURCEDIR="C:\Program Files (x86)\Deltek\Advantage\9.1\AdvantageLauncher\Releases\currentversion.zip"
 set OUTPUTDIR="C:\Program Files (x86)\Deltek\Advantage\9.1\AdvantageLauncher\Releases\currentversion"
@@ -31,5 +31,5 @@ copy "C:\Program Files (x86)\Deltek\Advantage\9.1\AdvantageLauncher\Releases\cur
 del "C:\Users\Public\Desktop\Timekeeper.lnk"
 del "C:\Users\Public\Desktop\Expensekeeper.lnk"
 del "C:\Users\Public\Desktop\Advantage.lnk"
-start Powershell.exe -ExecutionPolicy Bypass "Copy-Item  -Path 'C:\Program Files (x86)\Deltek\Advantage\9.1\AdvantageLauncher\Releases\currentversion\AdvantageLauncher-master\*' -Destination 'C:\Program Files (x86)\Deltek\Advantage\9.1\AdvantageLauncher\' -Recurse -force; start cmd.exe ' /c echo INSTALLATION COMPLETE YOU MAY NOW DELETE THIS SCRIPT & pause '"
+start "C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe" -ExecutionPolicy Bypass "Copy-Item  -Path 'C:\Program Files (x86)\Deltek\Advantage\9.1\AdvantageLauncher\Releases\currentversion\AdvantageLauncher-master\*' -Destination 'C:\Program Files (x86)\Deltek\Advantage\9.1\AdvantageLauncher\' -Recurse -force; start cmd.exe ' /c echo INSTALLATION COMPLETE YOU MAY NOW DELETE THIS SCRIPT & pause '"
 exit 0
