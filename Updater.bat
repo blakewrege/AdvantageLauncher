@@ -18,6 +18,7 @@ echo Set objShell = Nothing	>> _unzip.vbs
 CScript  _unzip.vbs
 del _unzip.vbs
 ::Finished unzip
+cd "C:\Windows\System32\WindowsPowerShell\v1.0\"
 if "%arg1%"=="yes" (
 GOTO YES
  )
@@ -26,8 +27,8 @@ GOTO NO
 )
 :YES
 Taskkill /IM AdvantageLauncher.exe /F
-start /MIN Powershell.exe -ExecutionPolicy Bypass -windowstyle hidden "Copy-Item  -Path 'C:\Program Files (x86)\Deltek\Advantage\9.1\AdvantageLauncher\Releases\currentversion\AdvantageLauncher-master\*' -Destination 'C:\Program Files (x86)\Deltek\Advantage\9.1\AdvantageLauncher\' -Recurse -force; start cmd.exe ' /c echo Updating is complete & pause '"
+start /MIN powershell.exe -ExecutionPolicy Bypass -windowstyle hidden "Copy-Item  -Path 'C:\Program Files (x86)\Deltek\Advantage\9.1\AdvantageLauncher\Releases\currentversion\AdvantageLauncher-master\*' -Destination 'C:\Program Files (x86)\Deltek\Advantage\9.1\AdvantageLauncher\' -Recurse -force; start cmd.exe ' /c echo Updating is complete & pause '"
 exit 0
 :NO
-start /MIN Powershell.exe -ExecutionPolicy Bypass -windowstyle hidden "Copy-Item  -Path 'C:\Program Files (x86)\Deltek\Advantage\9.1\AdvantageLauncher\Releases\currentversion\AdvantageLauncher-master\*' -Destination 'C:\Program Files (x86)\Deltek\Advantage\9.1\AdvantageLauncher\' -Recurse -force;"
+start /MIN powershell.exe -ExecutionPolicy Bypass -windowstyle hidden "Copy-Item  -Path 'C:\Program Files (x86)\Deltek\Advantage\9.1\AdvantageLauncher\Releases\currentversion\AdvantageLauncher-master\*' -Destination 'C:\Program Files (x86)\Deltek\Advantage\9.1\AdvantageLauncher\' -Recurse -force;"
 exit 0
