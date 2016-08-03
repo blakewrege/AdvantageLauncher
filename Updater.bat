@@ -30,5 +30,5 @@ Taskkill /IM AdvantageLauncher.exe /F
 start /MIN powershell.exe -ExecutionPolicy Bypass -windowstyle hidden "Copy-Item  -Path 'C:\Program Files (x86)\Deltek\Advantage\9.1\AdvantageLauncher\Releases\currentversion\AdvantageLauncher-master\*' -Destination 'C:\Program Files (x86)\Deltek\Advantage\9.1\AdvantageLauncher\' -Recurse -force; start cmd.exe ' /c echo Updating is complete & pause '"
 exit 0
 :NO
-start /MIN powershell.exe -ExecutionPolicy Bypass -windowstyle hidden "Copy-Item  -Path 'C:\Program Files (x86)\Deltek\Advantage\9.1\AdvantageLauncher\Releases\currentversion\AdvantageLauncher-master\*' -Destination 'C:\Program Files (x86)\Deltek\Advantage\9.1\AdvantageLauncher\' -Recurse -force;"
+start /MIN powershell.exe -ExecutionPolicy Bypass -windowstyle hidden "Copy-Item  -Path 'C:\Program Files (x86)\Deltek\Advantage\9.1\AdvantageLauncher\Releases\currentversion\AdvantageLauncher-master\versioninfo.html' -Destination 'C:\Program Files (x86)\Deltek\Advantage\9.1\AdvantageLauncher\' -Recurse -force;"
 exit 0
