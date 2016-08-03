@@ -1,8 +1,8 @@
 set arg1=%1
 cd %~dp0
-IF EXIST Releases Powershell.exe  -ExecutionPolicy Bypass "Remove-Item .\Releases -Force -Recurse"
+IF EXIST Releases "C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe"  -ExecutionPolicy Bypass "Remove-Item .\Releases -Force -Recurse"
 mkdir Releases
-Powershell.exe  -ExecutionPolicy Bypass "(New-Object System.Net.WebClient).DownloadFile('https://github.com/gigglesbw4/AdvantageLauncher/archive/master.zip"', 'C:\Program Files (x86)\Deltek\Advantage\9.1\AdvantageLauncher\Releases\currentversion.zip'); "
+"C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe" -ExecutionPolicy Bypass "(New-Object System.Net.WebClient).DownloadFile('https://github.com/gigglesbw4/AdvantageLauncher/archive/master.zip"', 'C:\Program Files (x86)\Deltek\Advantage\9.1\AdvantageLauncher\Releases\currentversion.zip'); "
 ::Create unzip
 set SOURCEDIR="C:\Program Files (x86)\Deltek\Advantage\9.1\AdvantageLauncher\Releases\currentversion.zip"
 set OUTPUTDIR="C:\Program Files (x86)\Deltek\Advantage\9.1\AdvantageLauncher\Releases\currentversion"
