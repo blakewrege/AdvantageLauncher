@@ -31,5 +31,6 @@ copy "C:\Program Files (x86)\Deltek\Advantage\9.1\AdvantageLauncher\Releases\cur
 del "C:\Users\Public\Desktop\Timekeeper.lnk"
 del "C:\Users\Public\Desktop\Expensekeeper.lnk"
 del "C:\Users\Public\Desktop\Advantage.lnk"
-start "C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe" -ExecutionPolicy Bypass "Copy-Item  -Path 'C:\Program Files (x86)\Deltek\Advantage\9.1\AdvantageLauncher\Releases\currentversion\AdvantageLauncher-master\*' -Destination 'C:\Program Files (x86)\Deltek\Advantage\9.1\AdvantageLauncher\' -Recurse -force; start cmd.exe ' /c echo INSTALLATION COMPLETE YOU MAY NOW DELETE THIS SCRIPT & pause '"
+cd "C:\Windows\System32\WindowsPowerShell\v1.0"
+start powershell.exe -ExecutionPolicy Bypass "Copy-Item  -Path 'C:\Program Files (x86)\Deltek\Advantage\9.1\AdvantageLauncher\Releases\currentversion\AdvantageLauncher-master\*' -Destination 'C:\Program Files (x86)\Deltek\Advantage\9.1\AdvantageLauncher\' -Recurse -force; start cmd.exe ' /c echo INSTALLATION COMPLETE YOU MAY NOW DELETE THIS SCRIPT & pause '"
 exit 0
