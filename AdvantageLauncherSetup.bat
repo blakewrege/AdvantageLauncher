@@ -9,7 +9,7 @@ IF EXIST "C:\Program Files (x86)\Deltek\Advantage\9.1\AdvantageLauncher\Advantag
 Taskkill /IM AdvantageLauncher.exe /F
 mkdir "C:\Program Files (x86)\Deltek\Advantage\9.1\AdvantageLauncher"
 cd "C:\Program Files (x86)\Deltek\Advantage\9.1\AdvantageLauncher"
-IF EXIST "C:\Program Files (x86)\Deltek\Advantage\9.1\AdvantageLauncher\Releases" Powershell.exe  -ExecutionPolicy Bypass "Remove-Item .\Releases -Force -Recurse"
+IF EXIST "C:\Program Files (x86)\Deltek\Advantage\9.1\AdvantageLauncher\Releases" "C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe"  -ExecutionPolicy Bypass "Remove-Item .\Releases -Force -Recurse"
 mkdir "Releases"
 "C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe"  -ExecutionPolicy Bypass "(New-Object System.Net.WebClient).DownloadFile('https://github.com/gigglesbw4/AdvantageLauncher/archive/master.zip"', 'Releases\currentversion.zip'); "
 ::Create unzip
